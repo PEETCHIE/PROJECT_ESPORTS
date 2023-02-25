@@ -6,7 +6,6 @@ from django.db import models
 from django.utils import timezone
 from django.db.models import F, Sum, Count
 
-
 class Categories(models.Model):
     name = models.CharField(max_length=50, default="")
     desc = models.TextField(max_length=400, default="")
@@ -43,3 +42,5 @@ class Season(models.Model): #ฤดูกาล
 
     def __str__(self):
         return self.name + ":" + self.desc
+
+

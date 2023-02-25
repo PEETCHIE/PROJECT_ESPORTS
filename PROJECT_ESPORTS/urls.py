@@ -21,25 +21,10 @@ from APP_ESPORTS import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.base, name='base'),
-    #DIRECTOR
-    path('director',views.director,name='director'),
-    path('newDirector',views.newDirector,name='newDirector'),
-    path('<id>/updateDirector',views.updateDirector,name='updateDirector'),
-    path('<id>/deleteDirector',views.deleteDirector,name='deleteDirector'),
-
-    #AGE CATEGORY
-    path('ageCategory',views.ageCategory, name='ageCategory'),
-    path('newAgeCategory', views.newAgeCategory, name='newAgeCategory'),
-    path('<id>/updateAgeCategory', views.updateAgeCategory, name='updateAgeCategory'),
-    path('<id>/deleteAgeCategory', views.deleteAgeCategory, name='deleteAgeCategory'),
-
-    path('season', views.season,name='season'),
-    path('newSeason', views.newSeason, name='newSeason'),
-    path('<id>/updateSeason', views.updateSeason, name='updateSeason'),
-    path('<id>/deleteSeason', views.deleteSeasaon, name='deleteSeason'),
-    #TYPE
     path('raceType',views.typeList, name='raceType'),
+    path('director',views.director,name='director'),
+    path('ageCategory',views.ageCategory, name='ageCategory'),
     path('newRaceType',views.newRaceType,name='newRaceType'),
-    path('<id>/updateRaceType', views.updateRaceType, name='updateRaceType'),
-    path('<id>/deleteRaceType', views.deleteRaceType, name='deleteRaceType'),
+    path('season', views.season,name='season'),
+
 ]

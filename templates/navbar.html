@@ -10,14 +10,19 @@
             <li class="nav-item">
 {#                <a class="nav-link" href="{% url 'delRegister' %}" style="color: #ffffff"><i class="far fa-registered"></i><b> รายวิชาที่ลงทะเบียน</b></a>#}
             </li>
-{#
 
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" style="color: #ffffff"><b>การลงทะเบียนเรียน</b></a>
+
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" style="color: #ffffff"><b>แอดมิน</b></a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'raceType' %}">ประเภทการแข่งขัน</a></li>
                 <li><a class="dropdown-item" href="{% url 'season' %}">ฤดูกาลแข่งขัน</a></li>
                 <li><a class="dropdown-item" href="{% url 'director' %}">กรรมการ</a></li>
                 <li><a class="dropdown-item" href="{% url 'ageCategory' %}">ประเภทอายุ</a></li>
+            </ul>
+             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" style="color: #ffffff"><b>ผู้ใช้</b></a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'team' %}">ตารางทีมเข้าร่วมการแข่งขัน</a></li>
+                <li><a class="dropdown-item" href="{% url 'createTeam' %}">สร้างทีมแข่งขัน</a></li>
             </ul>
         </ul>
     </div>
