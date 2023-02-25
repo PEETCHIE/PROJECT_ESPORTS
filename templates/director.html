@@ -10,19 +10,20 @@
             <th class="col col-5">วันเกิด </th>
             <th class="col col-5">เบอร์โทร </th>
             <th class="col col-5">ที่อยู่ </th>
-            <th class="col col-2"> จัดการ <a href="{% url 'newRaceType' %}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> เพิ่ม </a></th>
+            <th class="col col-2"> จัดการ <a href="{% url 'newDirector' %}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> เพิ่ม </a></th>
         </tr>
 
     {% for director in direc %}
         <tr>
+            <td hidden="hidden">{{ director.id }}</td>
             <td class="text-center">{{ director.name }}</td>
             <td>{{ director.gender }}</td>
             <td>{{ director.birthdate }}</td>
             <td>{{ director.tel }}</td>
             <td>{{ director.address }}</td>
             <td class="text-lg-center">
-                <a href="{% url 'director'  %}" class="btn btn-secondary"> <i class="fa fa-tools"> </i> </a>
-                <a href="{% url 'director'  %}" class="btn btn-danger"> <i class="fa fa-trash"> </i> </a>
+                <a href="{% url 'updateDirector' director.id %}" class="btn btn-secondary"> <i class="fa fa-tools"> </i> </a>
+                <a href="{% url 'deleteDirector'  director.id%}" class="btn btn-danger"> <i class="fa fa-trash"> </i> </a>
             </td>
         </tr>
     {% endfor %}

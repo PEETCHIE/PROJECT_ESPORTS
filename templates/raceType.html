@@ -11,11 +11,12 @@
         </tr>
     {% for typelist in raceType %}
         <tr class="text-center">
+            <td hidden="hidden">{{ typelist.id }}</td>
             <td class="text-center">{{ typelist.nameType }}</td>
             <td>{{ typelist.gender }}</td>
             <td class="text-lg-center">
-                <a href="{% url 'director'  %}" class="btn btn-secondary"> <i class="fa fa-tools"> </i> </a>
-                <a href="{% url 'director' %}" class="btn btn-danger"> <i class="fa fa-trash"> </i> </a>
+                <a href="{% url 'updateRaceType' typelist.id%}" class="btn btn-secondary"> <i class="fa fa-tools"> </i> </a>
+                <a href="{% url 'deleteRaceType' typelist.id %}" class="btn btn-danger"> <i class="fa fa-trash"> </i> </a>
             </td>
         </tr>
     {% endfor %}

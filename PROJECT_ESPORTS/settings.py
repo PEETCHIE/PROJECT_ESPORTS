@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'PROJECT_ESPORTS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'enrollin',
+        'NAME': 'esport',
         'USER': 'peetchie',
         'PASSWORD': '02247',
         'HOST': 'localhost',

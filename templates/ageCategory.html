@@ -7,7 +7,7 @@
         <tr class="bg-white text-primary text-center">
             <th class="col col-3">ชื่อประเภท </th>
             <th class="col col-5">เพศ </th>
-            <th class="col col-2">จัดการ<a href="{% url 'newRaceType' %}" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> เพิ่ม </a></th>
+            <th class="col col-2">จัดการ<a href="{% url 'newAgeCategory' %}" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> เพิ่ม </a></th>
         </tr>
 
     {% for ageCategory in age %}
@@ -15,8 +15,8 @@
             <td class="text-center">{{ ageCategory.name }}</td>
             <td>{{ ageCategory.desc }}</td>
             <td class="text-lg-center">
-                <a href="{% url 'director'  %}" class="btn btn-secondary"> <i class="fa fa-tools"> </i> </a>
-                <a href="{% url 'director' %}" class="btn btn-danger"> <i class="fa fa-trash"> </i> </a>
+                <a href="{% url 'updateAgeCategory'  ageCategory.id%}" class="btn btn-secondary"> <i class="fa fa-tools"> </i> </a>
+                <a href="{% url 'deleteAgeCategory' ageCategory.id%}" class="btn btn-danger"> <i class="fa fa-trash"> </i> </a>
             </td>
         </tr>
     {% endfor %}
