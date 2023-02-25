@@ -1,0 +1,148 @@
+Index: templates/base.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n{% load static %}\r\n{% load fontawesome_5 %}\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>base.html</title>\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap\" rel=\"stylesheet\">\r\n    <link type=\"text/css\" rel=\"stylesheet \" href=\"{% static 'stylesheet/bt523/css/bootstrap.css' %}\">\r\n    <script src=\"{% static 'stylesheet/bt523/js/bootstrap.bundle.js' %}\"></script>\r\n</head>\r\n\r\n<body>\r\n<style type=\"text/css\">\r\n    body {\r\n        font-family: 'Kanit', sans-serif;\r\n    }\r\n</style>\r\n\r\n<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\" style=\"background-color: #8866CB\">\r\n            {% include 'header.html' %}\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-12\" style=\"background-color: mediumpurple; \">\r\n            {% include 'navbar.html' %}\r\n        </div>\r\n    </div>\r\n    <br>\r\n    <div class=\"row\">\r\n        {% block content %}\r\n\r\n        {% endblock %}\r\n    </div>\r\n    <br>\r\n    <footer>\r\n        <div class=\"row\" style=\"background-color: #8866CB\">\r\n\r\n\r\n        <div class=\"list-group col-3\">\r\n            <li class=\"list-group-item list-group-item-warning text-dark\"><b>\r\n                <i class=\"fa fa-user-secret\"></i> Administrator:</b></li>\r\n                <a href=\"admin\" class=\"list-group-item list-group-item-action list-group-item-light text-dark\" target=\"_blank\">\r\n                <i class=\"fa fa-toolbox\"></i> Admin App.</a>\r\n        </div>\r\n\r\n\r\n            {% include 'footer.html' %}\r\n        </div>\r\n    </footer>\r\n\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/base.html b/templates/base.html
+--- a/templates/base.html	(revision e0be6b5254dc8d654bcef55db4b04a346c02d989)
++++ b/templates/base.html	(date 1677330450849)
+@@ -17,12 +17,14 @@
+     }
+ </style>
+ 
+-<div class="container-fluid">
+-    <div class="row">
+-        <div class="col-12 text-center" style="background-color: #8866CB">
++    <div class="container-fluid">
++        <div class="row">
++            <div class="col-12 text-center" style="background-color: #8866CB">
+             {% include 'header.html' %}
++            </div>
+         </div>
+     </div>
++
+ 
+     <div class="row">
+         <div class="col-12" style="background-color: mediumpurple; ">
+@@ -38,16 +40,12 @@
+     <br>
+     <footer>
+         <div class="row" style="background-color: #8866CB">
+-
+-
+-        <div class="list-group col-3">
++            <div class="list-group col-3">
+             <li class="list-group-item list-group-item-warning text-dark"><b>
+                 <i class="fa fa-user-secret"></i> Administrator:</b></li>
+                 <a href="admin" class="list-group-item list-group-item-action list-group-item-light text-dark" target="_blank">
+                 <i class="fa fa-toolbox"></i> Admin App.</a>
+-        </div>
+-
+-
++            </div>
+             {% include 'footer.html' %}
+         </div>
+     </footer>
+Index: APP_ESPORTS/models.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.db import models\r\nimport datetime\r\nimport random\r\n\r\nfrom django.db import models\r\nfrom django.utils import timezone\r\nfrom django.db.models import F, Sum, Count\r\n\r\n\r\nclass typeList(models.Model): #ประเภทการแข่ง\r\n    nameType = models.CharField(max_length=50, default=\"\")\r\n    gender = models.TextField(max_length=400, default=\"\")\r\n    def __str__(self):\r\n        return self.nameType + \":\" + self.gender\r\n\r\nclass Director(models.Model): #กรรมการ\r\n    name = models.CharField(max_length=50, default=\"\")\r\n    gender = models.TextField(max_length=40, default=\"\")\r\n    birthday = models.DateTimeField(max_length=40, default=\"\")\r\n    tel = models.CharField(max_length=10, default=\"\")\r\n    address = models.CharField(max_length=400, default=\"\")\r\n    def __str__(self):\r\n        return self.name + \":\" + self.gender + \":\" + self.birthday + \":\" + self.tel + \":\" + self.address\r\n\r\n\r\n\r\nclass AgeCategory(models.Model): #ช่วงอายุ\r\n    name = models.CharField(max_length=50, default=\"\")\r\n    desc = models.TextField(max_length=400, default=\"\")\r\n\r\n    def __str__(self):\r\n        return self.name + \":\" + self.desc\r\n\r\nclass Season(models.Model): #ฤดูกาล\r\n    name = models.CharField(max_length=50, default=\"\")\r\n    desc = models.TextField(max_length=400, default=\"\")\r\n\r\n    def __str__(self):\r\n        return self.name + \":\" + self.desc\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/APP_ESPORTS/models.py b/APP_ESPORTS/models.py
+--- a/APP_ESPORTS/models.py	(revision e0be6b5254dc8d654bcef55db4b04a346c02d989)
++++ b/APP_ESPORTS/models.py	(date 1677327906321)
+@@ -20,7 +20,7 @@
+     tel = models.CharField(max_length=10, default="")
+     address = models.CharField(max_length=400, default="")
+     def __str__(self):
+-        return self.name + ":" + self.gender + ":" + self.birthday + ":" + self.tel + ":" + self.address
++        return self.name + ":" + self.gender + ":" + str(self.birthday) + ":" + self.tel + ":" + self.address
+ 
+ 
+ 
+Index: APP_ESPORTS/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render\r\n\r\nfrom APP_ESPORTS.models import *\r\n\r\n\r\n# Create your views here.\r\n\r\ndef typeList(request):\r\n    raceType = typeList.objects.all().order_by()\r\n    context = {'raceType': typeList}\r\n    return render(request,\"raceType.html\",context)\r\n\r\ndef director(request):\r\n    director = Director.objects.all().order_by()\r\n    context = {'categories':RaceType}\r\n    return render(request,\"director.html\",context)\r\n\r\ndef base(request):\r\n    return render(request,\"base.html\")\r\n\r\ndef newRaceType(request):\r\n    return render(request,\"CRUD/newRaceType.html\")\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/APP_ESPORTS/views.py b/APP_ESPORTS/views.py
+--- a/APP_ESPORTS/views.py	(revision e0be6b5254dc8d654bcef55db4b04a346c02d989)
++++ b/APP_ESPORTS/views.py	(date 1677330895770)
+@@ -6,13 +6,13 @@
+ # Create your views here.
+ 
+ def typeList(request):
+-    raceType = typeList.objects.all().order_by()
+-    context = {'raceType': typeList}
++    typelist = typeList.objects.all().order_by()
++    context = {'typelist': typelist}
+     return render(request,"raceType.html",context)
+ 
+ def director(request):
+     director = Director.objects.all().order_by()
+-    context = {'categories':RaceType}
++    context = {'direector':director}
+     return render(request,"director.html",context)
+ 
+ def base(request):
+Index: PROJECT_ESPORTS/settings.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nDjango settings for PROJECT_ESPORTS project.\r\n\r\nGenerated by 'django-admin startproject' using Django 4.1.7.\r\n\r\nFor more information on this file, see\r\nhttps://docs.djangoproject.com/en/4.1/topics/settings/\r\n\r\nFor the full list of settings and their values, see\r\nhttps://docs.djangoproject.com/en/4.1/ref/settings/\r\n\"\"\"\r\n\r\nfrom pathlib import Path\r\nimport os\r\n\r\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\r\nBASE_DIR = Path(__file__).resolve().parent.parent\r\n\r\n\r\n# Quick-start development settings - unsuitable for production\r\n# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/\r\n\r\n# SECURITY WARNING: keep the secret key used in production secret!\r\nSECRET_KEY = 'django-insecure-i)6$qyzez!+0v350ef79mhu@1x5p=ibg9_$4*)d&67n2%5f8nn'\r\n\r\n# SECURITY WARNING: don't run with debug turned on in production!\r\nDEBUG = True\r\n\r\nALLOWED_HOSTS = []\r\n\r\n\r\n# Application definition\r\n\r\nINSTALLED_APPS = [\r\n    'django.contrib.admin',\r\n    'django.contrib.auth',\r\n    'django.contrib.contenttypes',\r\n    'django.contrib.sessions',\r\n    'django.contrib.messages',\r\n    'django.contrib.staticfiles',\r\n    'APP_ESPORTS.apps.AppEsportsConfig',\r\n    'fontawesome_5'\r\n]\r\n\r\nMIDDLEWARE = [\r\n    'django.middleware.security.SecurityMiddleware',\r\n    'django.contrib.sessions.middleware.SessionMiddleware',\r\n    'django.middleware.common.CommonMiddleware',\r\n    'django.middleware.csrf.CsrfViewMiddleware',\r\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\r\n    'django.contrib.messages.middleware.MessageMiddleware',\r\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\r\n]\r\n\r\nROOT_URLCONF = 'PROJECT_ESPORTS.urls'\r\n\r\nTEMPLATES = [\r\n    {\r\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\r\n        'DIRS': [BASE_DIR / 'templates']\r\n        ,\r\n        'APP_DIRS': True,\r\n        'OPTIONS': {\r\n            'context_processors': [\r\n                'django.template.context_processors.debug',\r\n                'django.template.context_processors.request',\r\n                'django.contrib.auth.context_processors.auth',\r\n                'django.contrib.messages.context_processors.messages',\r\n            ],\r\n        },\r\n    },\r\n]\r\n\r\nWSGI_APPLICATION = 'PROJECT_ESPORTS.wsgi.application'\r\n\r\n\r\n# Database\r\n# https://docs.djangoproject.com/en/4.1/ref/settings/#databases\r\n\r\nDATABASES = {\r\n    'default': {\r\n        'ENGINE': 'django.db.backends.mysql',\r\n        'NAME': 'enrollin',\r\n        'USER': 'peetchie',\r\n        'PASSWORD': '02247',\r\n        'HOST': 'localhost',\r\n        'PORT': '3306',\r\n    }\r\n}\r\n\r\n\r\n# Password validation\r\n# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators\r\n\r\nAUTH_PASSWORD_VALIDATORS = [\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\r\n    },\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\r\n    },\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\r\n    },\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',\r\n    },\r\n]\r\n\r\n\r\n# Internationalization\r\n# https://docs.djangoproject.com/en/4.1/topics/i18n/\r\n\r\nLANGUAGE_CODE = 'TH-th'\r\n\r\nTIME_ZONE = 'Asia/Bangkok'\r\n\r\nUSE_I18N = True\r\n\r\nUSE_TZ = True\r\n\r\n\r\n# Static files (CSS, JavaScript, Images)\r\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\r\n\r\nSTATIC_URL = 'static/'\r\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\r\n\r\n# Default primary key field type\r\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\r\n\r\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PROJECT_ESPORTS/settings.py b/PROJECT_ESPORTS/settings.py
+--- a/PROJECT_ESPORTS/settings.py	(revision e0be6b5254dc8d654bcef55db4b04a346c02d989)
++++ b/PROJECT_ESPORTS/settings.py	(date 1677330551648)
+@@ -80,7 +80,7 @@
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+-        'NAME': 'enrollin',
++        'NAME': 'esport',
+         'USER': 'peetchie',
+         'PASSWORD': '02247',
+         'HOST': 'localhost',
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.11 (PROJECT_ESPORTS.git)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e0be6b5254dc8d654bcef55db4b04a346c02d989)
++++ b/.idea/misc.xml	(date 1677327138647)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (PROJECT_ESPORTS.git)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (PROJECT_ESPORTS)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/PROJECT_ESPORTS.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"FacetManager\">\r\n    <facet type=\"django\" name=\"Django\">\r\n      <configuration>\r\n        <option name=\"rootFolder\" value=\"$MODULE_DIR$\" />\r\n        <option name=\"settingsModule\" value=\"PROJECT_ESPORTS/settings.py\" />\r\n        <option name=\"manageScript\" value=\"$MODULE_DIR$/manage.py\" />\r\n        <option name=\"environment\" value=\"&lt;map/&gt;\" />\r\n        <option name=\"doNotUseTestRunner\" value=\"false\" />\r\n        <option name=\"trackFilePattern\" value=\"migrations\" />\r\n      </configuration>\r\n    </facet>\r\n  </component>\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/venv\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n  <component name=\"TemplatesService\">\r\n    <option name=\"TEMPLATE_CONFIGURATION\" value=\"Django\" />\r\n    <option name=\"TEMPLATE_FOLDERS\">\r\n      <list>\r\n        <option value=\"$MODULE_DIR$/../PROJECT_ESPORTS\\templates\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/PROJECT_ESPORTS.iml b/.idea/PROJECT_ESPORTS.iml
+--- a/.idea/PROJECT_ESPORTS.iml	(revision e0be6b5254dc8d654bcef55db4b04a346c02d989)
++++ b/.idea/PROJECT_ESPORTS.iml	(date 1677327138616)
+@@ -16,7 +16,7 @@
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/venv" />
+     </content>
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="Python 3.11 (PROJECT_ESPORTS)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+   <component name="TemplatesService">
